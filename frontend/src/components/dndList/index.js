@@ -47,10 +47,11 @@ const DndItem = ({ card, moveItem, index }) => {
             isDragging: monitor.isDragging(),
         }),
     });
-    const opacity = isDragging ? 0 : 1;
+    //const opacity = isDragging ? 0 : 1;
+    React.useEffect(() => ref.current.style.opacity = 1, []);   
     drag(drop(ref));
     return (
-        <li className="dndList-li" ref={ref} style={{ opacity }}>
+        <li className="dndList-li" ref={ref} style={{ opacity:0, transition: 'opacity .4s ease-in-out' }}>
             <h3 className="dndList-fio">{card.fio}</h3>
             <img src={card.photo} className="dndList-photo" />
             <ul className="horizontalList">
