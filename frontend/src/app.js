@@ -1,15 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend'
+
+import Header from './components/header';
+import DndList from './components/dndList';
+
+import './styles/global.less';
 
 const App = () => {
-    React.useEffect(() => {
-        axios.get('https://localhost:3000/employee?id=1')
-        .then(res => console.log(res));
-    }, [])
-    return <div>
-        <h1>It works</h1>
-    </div>;
+    return <>
+    <DndProvider backend={HTML5Backend}>
+        <Header text={'ChooseApp'} />
+        <div className="appContainer">
+            <DndList />
+        </div>
+    </DndProvider>
+    </>
 };
 
-ReactDOM.render(React.createElement(App), document.getElementById('react-root'));
+export default App;

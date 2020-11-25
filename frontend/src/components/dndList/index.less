@@ -1,0 +1,46 @@
+@import '../../styles/colors.less';
+@import '../../styles/mixins.less';
+
+.dndList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    width: 100%;
+
+    &-li {
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid @color2;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &-fio {
+        margin: 0;
+        text-align: center;
+        pointer-events: none;
+    }
+
+    &-photo {
+        .imgWrapper(200px, 200px);
+        margin-top: 10px;
+        pointer-events: none;
+    }
+}
+
+.horizontalList {
+    list-style: circle;
+    width: 100%;
+    margin-top: 10px;
+    justify-self: flex-end;
+    pointer-events: none;
+
+    &-li {
+        margin: 2px 0;
+        pointer-events: none;
+    }
+}

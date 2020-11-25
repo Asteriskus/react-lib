@@ -1,0 +1,41 @@
+@import '../../styles/colors.less';
+@import '../../styles/mixins.less';
+
+.header {
+    display: grid;
+    padding: 30px;
+    grid-template-columns: 1fr 5fr;
+    background: @color1;
+
+    &-logo {
+        .textWithShadow(@color5);
+        margin: 0px;
+    }
+
+    &-nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &-ul {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 0;
+    }
+
+    &-li {
+        margin: 0 15px;
+    }
+
+    &-a {
+        text-decoration: none;
+        color: @color5;
+
+        &:hover {
+            color: @color4;
+        }
+    }
+}
