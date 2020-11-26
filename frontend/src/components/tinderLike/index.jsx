@@ -54,14 +54,22 @@ const withTinderDnd = (Wrapped, type) => (props) => {
             if (dragIndex != hoverIndex) return;
             const hoverBoundingRect = ref.current.getBoundingClientRect();
             const differenceFromInitialOffset = monitor.getDifferenceFromInitialOffset();
+            let color;
+            if (differenceFromInitialOffset.x - hoverBoundingRect.width/4 > 0) {
+                color = '#EF5350';
+            } else if (differenceFromInitialOffset.x + hoverBoundingRect.width/4 < 0) {
+                color = '#66BB6A';
+            }
             ref.current.style.transform = `translate(${differenceFromInitialOffset.x}px)`;
             ref.current.style.opacity = 100 / Math.abs(differenceFromInitialOffset.x);
+            ref.current.style.backgroundColor = color;
         },
         drop(item, monitor) {
             const hoverBoundingRect = ref.current.getBoundingClientRect();
             const differenceFromInitialOffset = monitor.getDifferenceFromInitialOffset();
             ref.current.style.transform = `translateX(0)`;
             ref.current.style.opacity = 1;
+            ref.current.style.backgroundColor = 'white';
             if (Math.abs(differenceFromInitialOffset.x) < hoverBoundingRect.width/2) return;
             // if right - accept, if left - decline
             moveItem(item.index, differenceFromInitialOffset.x > 0);
