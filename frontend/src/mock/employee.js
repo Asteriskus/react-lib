@@ -1,6 +1,6 @@
-import photo1 from '../../../img/1.jpg';
-import photo2 from '../../../img/2.jpeg';
-import photo3 from '../../../img/3.jpeg';
+import photo1 from '../../img/1.jpg';
+import photo2 from '../../img/2.jpeg';
+import photo3 from '../../img/3.jpeg';
 
 const employee = [
     {
